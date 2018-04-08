@@ -10,10 +10,6 @@ Regxr is a minimal, lightweight and beautiful MacOS desktop application that all
 - Full screeen support
 - Reference manual
 
-### Download
-
-Visit [lukakerr.github.io](https://lukakerr.github.io/projects/regxr.html) to download
-
 I have also developed a [menubar application](https://github.com/lukakerr/regxr-menubar) that does the same thing, but lives in the menubar.
 
 <p align="center">
