@@ -20,7 +20,7 @@ class RegexHighlighter {
     )
     
     let attribute = NSMutableAttributedString(string: string)
-    let attributeLength = attribute.string.characters.count
+    let attributeLength = attribute.string.count
     
     switch theme {
     case "Light":
@@ -82,7 +82,7 @@ class RegexHighlighter {
       return regex.matches(
         in: text,
         options: [],
-        range: NSRange(location: 0, length: text.characters.count)
+        range: NSRange(location: 0, length: text.count)
       )
     } catch _ {
       return []

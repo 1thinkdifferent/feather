@@ -3,12 +3,27 @@
 Regxr is a minimal, lightweight and beautiful MacOS desktop application that allows for easy checking of regular expression pattern matching.
 
 ### Features
+
 - Syntax highlighting
 - Dark and light modes
 - Minimal and simple to use
 - Live preview of multiple pattern matches 
 - Full screeen support
 - Reference manual
+
+### Installing
+
+To install Regxr, visit the [releases page](https://github.com/lukakerr/regxr/releases).
+
+### Building
+
+To build and run, clone this repository, open in Xcode and hit "Run".
+
+```bash
+$ git clone git@github.com:lukakerr/regxr.git
+$ cd regxr
+$ open Regxr.xcodeproj
+```
 
 ### Screenshots
 

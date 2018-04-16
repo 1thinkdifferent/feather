@@ -150,7 +150,7 @@ class RegexViewController: NSViewController, NSWindowDelegate {
       let results = regex.matches(
         in: text,
         options: [],
-        range: NSRange(location: 0, length: text.characters.count)
+        range: NSRange(location: 0, length: text.count)
       )
       return results
     } catch _ {
@@ -199,7 +199,7 @@ class RegexViewController: NSViewController, NSWindowDelegate {
       // Otherwise get topBox regex and current key character
       if let event = event {
         if event.charactersIgnoringModifiers == String(Character(UnicodeScalar(NSDeleteCharacter)!)) {
-          foundMatches = matches(for: String(topBox.characters.dropLast()), in: bottomBox)
+          foundMatches = matches(for: String(topBox.dropLast()), in: bottomBox)
         } else {
           foundMatches = matches(for: topBox + String(describing: event.characters!), in: bottomBox)
         }
@@ -208,7 +208,7 @@ class RegexViewController: NSViewController, NSWindowDelegate {
       }
       
       let attribute = NSMutableAttributedString(string: bottomBox)
-      let attributeLength = attribute.string.characters.count
+      let attributeLength = attribute.string.count
       
       var newColor = false
       
