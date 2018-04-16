@@ -8,7 +8,7 @@ Regxr is a minimal, lightweight and beautiful MacOS desktop application that all
 - Dark and light modes
 - Minimal and simple to use
 - Live preview of multiple pattern matches 
-- Full screeen support
+- Full screen support
 - Reference manual
 
 ### Installing
