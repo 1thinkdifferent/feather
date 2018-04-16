@@ -114,8 +114,10 @@ class RegexViewController: NSViewController, NSWindowDelegate {
     }
     if let theme = theme {
       let highlightedText = highlighter.highlight(string: self.regexTextInput, theme: theme)
+      let cursorPosition = regexInput.selectedRanges[0].rangeValue.location
       regexInput.textStorage?.mutableString.setString("")
       regexInput.textStorage?.append(highlightedText)
+      regexInput.setSelectedRange(NSMakeRange(cursorPosition, 0))
     }
   }
   
@@ -182,8 +184,10 @@ class RegexViewController: NSViewController, NSWindowDelegate {
       )
     }
     
+    let cursorPosition = textOutput.selectedRanges[0].rangeValue.location
     textOutput.textStorage?.mutableString.setString("")
     textOutput.textStorage?.append(attr)
+    textOutput.setSelectedRange(NSMakeRange(cursorPosition, 0))
     textOutput.font = NSFont(name: "Monaco", size: 15)
   }
   
@@ -265,6 +269,16 @@ class RegexViewController: NSViewController, NSWindowDelegate {
     // Return and let default action occur
     switch event.modifierFlags.intersection(.deviceIndependentFlagsMask) {
     case [.command]:
+      return
+    case [.control]:
+      return
+    default:
+      break
+    }
+    
+    // Handle specific keyCodes e.g arrow keys
+    switch event.keyCode {
+    case 123, 124, 125, 126:
       return
     default:
       break
