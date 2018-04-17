@@ -13,9 +13,7 @@ class SidebarViewController: NSViewController, NSWindowDelegate {
   
   @IBOutlet weak var referenceView: WebView!
   @IBOutlet weak var backgroundView: NSVisualEffectView!
-  
-  let defaults = UserDefaults.standard
-  
+
   override func viewWillAppear() {
     super.viewWillAppear()
     
@@ -54,33 +52,26 @@ class SidebarViewController: NSViewController, NSWindowDelegate {
   
   func setReferenceView(theme: String) {
     if let filePath = Bundle.main.path(forResource: "reference", ofType: "html") {
+      var text = "#CCC"
+      var oddBackground = "rgba(0, 0, 0, 0.1)"
+      var evenBackground = "rgba(0, 0, 0, 0.15)"
       
-      var contentToAppend: String
-      
-      switch theme {
-      case "Light":
-        contentToAppend = """
-        <style>
-        body{color:#444;}
-        span.content{color:#444}
-        div.item:nth-child(odd) {background: rgba(0, 0, 0, 0.05);}
-        div.item:nth-child(even) {background: rgba(0, 0, 0, 0.025);}
-        </style>
-        </body>
-        </html>
-        """
-      default:
-        contentToAppend = """
-        <style>
-        body{color:#CCC;}
-        span.content{color:#CCC}
-        div.item:nth-child(odd){background: rgba(0, 0, 0, 0.1);}
-        div.item:nth-child(even){background: rgba(0, 0, 0, 0.15);}
-        </style>
-        </body>
-        </html>
-        """
+      if (theme == "Light") {
+        text = "#444"
+        oddBackground = "rgba(0, 0, 0, 0.05)"
+        evenBackground = "rgba(0, 0, 0, 0.025)"
       }
+      
+      let contentToAppend = """
+      <style>
+      body{color:\(text);}
+      span.content{color:\(text)}
+      div.item:nth-child(odd) {background: \(oddBackground);}
+      div.item:nth-child(even) {background: \(evenBackground);}
+      </style>
+      </body>
+      </html>
+      """
       
       // Check if file exists
       if let fileHandle = FileHandle(forWritingAtPath: filePath) {

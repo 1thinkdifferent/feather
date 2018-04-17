@@ -9,20 +9,15 @@
 import Cocoa
 
 class PreferencesWindowController: NSWindowController, NSWindowDelegate {
-  
-  let defaults = UserDefaults.standard
-  
+
   override func windowDidLoad() {
     super.windowDidLoad()
     
     let theme = defaults.string(forKey: "theme") ?? DEFAULT_THEME
     
     if let window = window {
-      if (theme == "Light") {
-        window.appearance = NSAppearance(named: NSAppearance.Name.vibrantLight)
-      } else {
-        window.appearance = NSAppearance(named: NSAppearance.Name.vibrantDark)
-      }
+      let appearance = (theme == "Light") ? lightTheme.appearance : darkTheme.appearance;
+      window.appearance = NSAppearance(named: appearance)
       window.titleVisibility = NSWindow.TitleVisibility.hidden;
       window.titlebarAppearsTransparent = true;
       window.styleMask.insert(.fullSizeContentView)

@@ -8,11 +8,11 @@
 
 import Cocoa
 
+let defaults = UserDefaults.standard
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
-  
-  let defaults = UserDefaults.standard
-  
+
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     // Main window
     let window = NSApplication.shared.windows.first!
@@ -20,9 +20,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     let theme = defaults.string(forKey: "theme") ?? DEFAULT_THEME
     
     if (theme == "Light") {
-      window.appearance = NSAppearance(named: NSAppearance.Name.vibrantLight)
+      window.appearance = NSAppearance(named: lightTheme.appearance)
     } else {
-      window.appearance = NSAppearance(named: NSAppearance.Name.vibrantDark)
+      window.appearance = NSAppearance(named: darkTheme.appearance)
     }
     
     // Title bar properties
@@ -31,10 +31,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     window.styleMask.insert(.fullSizeContentView)
     window.isOpaque = false
     window.invalidateShadow()
-  }
-  
-  func applicationWillTerminate(_ aNotification: Notification) {
-    
   }
   
 }

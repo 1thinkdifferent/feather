@@ -10,8 +10,6 @@ import Cocoa
 
 class WindowController: NSWindowController {
   
-  let defaults = UserDefaults.standard
-  
   override func windowDidLoad() {
     super.windowDidLoad()
     
@@ -19,7 +17,6 @@ class WindowController: NSWindowController {
     
     if let window = window {
       setWindowColor(theme: theme)
-      
       window.titleVisibility = NSWindow.TitleVisibility.hidden;
       window.titlebarAppearsTransparent = true;
       window.styleMask.insert(.fullSizeContentView)
@@ -30,11 +27,8 @@ class WindowController: NSWindowController {
   }
   
   func setWindowColor(theme: String) {
-    if (theme == "Light") {
-      window?.appearance = NSAppearance(named: NSAppearance.Name.vibrantLight)
-    } else {
-      window?.appearance = NSAppearance(named: NSAppearance.Name.vibrantDark)
-    }
+    let appearance = (theme == "Light") ? lightTheme.appearance : darkTheme.appearance;
+    window?.appearance = NSAppearance(named: appearance)
   }
   
 }

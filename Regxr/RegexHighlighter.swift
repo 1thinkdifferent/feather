@@ -22,20 +22,11 @@ class RegexHighlighter {
     let attribute = NSMutableAttributedString(string: string)
     let attributeLength = attribute.string.count
     
-    switch theme {
-    case "Light":
-      attribute.addAttribute(
-        NSAttributedStringKey.foregroundColor,
-        value: NSColor.black,
-        range: NSRange(location: 0, length: attribute.length)
-      )
-    default:
-      attribute.addAttribute(
-        NSAttributedStringKey.foregroundColor,
-        value: NSColor.white,
-        range: NSRange(location: 0, length: attribute.length)
-      )
-    }
+    attribute.addAttribute(
+      NSAttributedStringKey.foregroundColor,
+      value: theme == "Light" ? lightTheme.text : darkTheme.text,
+      range: NSRange(location: 0, length: attribute.length)
+    )
     
     for match in purpleFoundMatches {
       var range = match.range(at: 0)
@@ -47,7 +38,7 @@ class RegexHighlighter {
       
       attribute.addAttribute(
         NSAttributedStringKey.foregroundColor,
-        value: NSColor(red: 0.60, green: 0.26, blue: 0.77, alpha: 1),
+        value: commonTheme.purple,
         range: NSRange(location: range.location, length: matchLength)
       )
       range = NSMakeRange(range.location + range.length, attributeLength - (range.location + range.length))
@@ -63,7 +54,7 @@ class RegexHighlighter {
       
       attribute.addAttribute(
         NSAttributedStringKey.foregroundColor,
-        value: NSColor(red: 0.25, green: 0.51, blue: 0.77, alpha: 1),
+        value: commonTheme.blue,
         range: NSRange(location: range.location, length: matchLength)
       )
       range = NSMakeRange(range.location + range.length, attributeLength - (range.location + range.length))

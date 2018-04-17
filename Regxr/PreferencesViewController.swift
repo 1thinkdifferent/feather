@@ -12,26 +12,17 @@ class PreferencesViewController: NSViewController {
   
   @IBOutlet weak var themeButton: NSSegmentedControl!
   @IBOutlet weak var referencesManualCheckbox: NSButton!
-  
-  let defaults = UserDefaults.standard
+
+  var wc = WindowController()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     let theme = defaults.string(forKey: "theme") ?? DEFAULT_THEME
-    
-    switch theme {
-    case "Light":
-      themeButton.selectedSegment = 0
-    default:
-      themeButton.selectedSegment = 1
-    }
-    
     let showReferenceOnStartup = defaults.bool(forKey: "showReference")
+    themeButton.selectedSegment = (theme == "Light") ? lightTheme.id : darkTheme.id
     referencesManualCheckbox.state = showReferenceOnStartup ? .on : .off
   }
-  
-  var wc = WindowController()
   
   @IBAction func themeChanged(_ sender: NSSegmentedControl) {
     let theme = defaults.string(forKey: "theme") ?? DEFAULT_THEME
@@ -40,10 +31,10 @@ class PreferencesViewController: NSViewController {
     if (sender.selectedSegment == 0) {
       // Light theme chosen
       chosenTheme = "Light"
-      self.view.window?.appearance = NSAppearance(named: NSAppearance.Name.vibrantLight)
+      self.view.window?.appearance = NSAppearance(named: lightTheme.appearance)
     } else {
       chosenTheme = "Dark"
-      self.view.window?.appearance = NSAppearance(named: NSAppearance.Name.vibrantDark)
+      self.view.window?.appearance = NSAppearance(named: darkTheme.appearance)
     }
     wc.setWindowColor(theme: chosenTheme)
     
@@ -56,12 +47,6 @@ class PreferencesViewController: NSViewController {
   }
   
   @IBAction func referenceManualChecked(_ sender: NSButton) {
-    var show : Bool
-    if (sender.state.rawValue == 0) {
-      show = false
-    } else {
-      show = true
-    }
-    defaults.setValue(show, forKey: "showReference")
+    defaults.setValue((sender.state.rawValue != 0), forKey: "showReference")
   }
 }
