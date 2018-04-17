@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="13196"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="14109"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,7 +39,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="91K-dV-CvU">
-                                <rect key="frame" x="47" y="64" width="206" height="24"/>
+                                <rect key="frame" x="48" y="64" width="204" height="24"/>
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="PYe-MD-rJg">
                                     <font key="font" metaFont="system"/>
                                     <segments>
@@ -551,7 +551,7 @@
                                             <action selector="referenceButtonClicked:" target="XfG-lQ-9wD" id="jwx-52-Esj"/>
                                         </connections>
                                     </button>
-                                    <scrollView focusRingType="none" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmv-xg-Hlb">
+                                    <scrollView focusRingType="none" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmv-xg-Hlb">
                                         <rect key="frame" x="30" y="30" width="240" height="98"/>
                                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Wgy-6Z-ACj">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="98"/>
@@ -579,8 +579,8 @@
                                             <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
-                                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="zEG-NO-PoH">
-                                            <rect key="frame" x="224" y="0.0" width="16" height="98"/>
+                                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="zEG-NO-PoH">
+                                            <rect key="frame" x="-100" y="-100" width="16" height="98"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>
@@ -601,7 +601,7 @@
                             <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="9cM-FK-qv3">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="229"/>
                                 <subviews>
-                                    <scrollView focusRingType="none" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYY-C1-WjV">
+                                    <scrollView focusRingType="none" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYY-C1-WjV">
                                         <rect key="frame" x="40" y="28" width="220" height="173"/>
                                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="PI0-A2-29n">
                                             <rect key="frame" x="0.0" y="0.0" width="220" height="173"/>
@@ -629,8 +629,8 @@
                                             <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
-                                        <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="Idi-uv-GUE">
-                                            <rect key="frame" x="204" y="0.0" width="16" height="173"/>
+                                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="Idi-uv-GUE">
+                                            <rect key="frame" x="-100" y="-100" width="16" height="173"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>
