@@ -8,7 +8,9 @@
 
 import Cocoa
 
-struct Theme {
+class Theme {
+  static let sharedInstance = Theme()
+  
   var id: Int = 0
   var name: String = "Light"
   var appearance: NSAppearance.Name = NSAppearance.Name.vibrantLight
@@ -27,7 +29,7 @@ struct Theme {
     return self.name
   }
   
-  mutating func setTheme(_ theme: String) {
+  func setTheme(_ theme: String) {
     if (theme == "Light") {
       self.id = 0
       self.name = theme
@@ -43,4 +45,4 @@ struct Theme {
   }
 }
 
-var currentTheme = Theme()
+let currentTheme = Theme.sharedInstance
