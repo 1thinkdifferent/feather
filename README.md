@@ -4,7 +4,7 @@
   <img src="https://github.com/lukakerr/regxr/blob/master/Regxr/Assets.xcassets/AppIcon.appiconset/icon-512.png" width="200">
 </p>
 
-Regxr is a minimal, lightweight and beautiful MacOS desktop application that allows for easy checking of regular expression pattern matching.
+Regxr is a minimal and lightweight MacOS desktop application that allows for easy checking of regular expression pattern matching.
 
 ### Features
 
