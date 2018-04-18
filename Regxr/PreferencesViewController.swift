@@ -13,7 +13,7 @@ class PreferencesViewController: NSViewController {
   @IBOutlet weak var themeButton: NSSegmentedControl!
   @IBOutlet weak var referencesManualCheckbox: NSButton!
 
-  var wc = WindowController()
+  let wc = WindowController()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -33,8 +33,6 @@ class PreferencesViewController: NSViewController {
       name: NSNotification.Name(rawValue: "changeThemeNotification"),
       object: chosenTheme
     )
-    
-    defaults.setValue(chosenTheme, forKey: "theme")
   }
   
   @IBAction func referenceManualChecked(_ sender: NSButton) {
