@@ -35,19 +35,14 @@ class SidebarViewController: NSViewController, NSWindowDelegate {
   }
   
   @objc func setThemeColor(notification: Notification?) {
-    var theme = notification?.object as? String ?? defaults.string(forKey: "theme")
-    if theme == nil {
-      theme = DEFAULT_THEME
+    let theme = currentTheme.getTheme()
+    switch theme {
+    case "Light":
+      backgroundView.material = .mediumLight
+    default:
+      backgroundView.material = .ultraDark
     }
-    if let theme = theme {
-      switch theme {
-      case "Light":
-        backgroundView.material = .mediumLight
-      default:
-        backgroundView.material = .ultraDark
-      }
-      setReferenceView(theme: theme)
-    }
+    setReferenceView(theme: theme)
   }
   
   func setReferenceView(theme: String) {

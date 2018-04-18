@@ -17,13 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     // Main window
     let window = NSApplication.shared.windows.first!
     
-    let theme = defaults.string(forKey: "theme") ?? DEFAULT_THEME
-    
-    if (theme == "Light") {
-      window.appearance = NSAppearance(named: lightTheme.appearance)
-    } else {
-      window.appearance = NSAppearance(named: darkTheme.appearance)
-    }
+    window.appearance = NSAppearance(named: currentTheme.appearance)
     
     // Title bar properties
     window.titleVisibility = NSWindow.TitleVisibility.hidden;

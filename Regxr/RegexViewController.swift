@@ -8,7 +8,7 @@
 
 import Cocoa
 
-let DEFAULT_THEME = lightTheme.name
+let DEFAULT_THEME = "Light"
 let DEFAULT_SHOW_REFERENCE = true
 
 class RegexViewController: NSViewController, NSWindowDelegate {
@@ -24,7 +24,7 @@ class RegexViewController: NSViewController, NSWindowDelegate {
   
   @objc dynamic var regexTextInput: String = "" {
     didSet {
-      setRegexInputColor(notification: nil)
+      parse()
     }
   }
   
@@ -34,18 +34,13 @@ class RegexViewController: NSViewController, NSWindowDelegate {
     }
     set {
       self.regexTextInput = newValue.string
+      parse()
     }
   }
   
   @objc dynamic var textInput: String = "" {
     didSet {
-      let attr = setRegexHighlight(
-        regex: regexInput.textStorage?.string,
-        text: self.textInput,
-        event: nil
-      )
-      setOutputHighlight(attr: attr)
-      setRegexInputColor(notification: nil)
+      parse()
     }
   }
   
@@ -76,14 +71,7 @@ class RegexViewController: NSViewController, NSWindowDelegate {
     
     NotificationCenter.default.addObserver(
       self,
-      selector: #selector(self.setThemeColor),
-      name: NSNotification.Name(rawValue: "changeThemeNotification"),
-      object: nil
-    )
-    
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(self.setRegexInputColor),
+      selector: #selector(self.themeChanged),
       name: NSNotification.Name(rawValue: "changeThemeNotification"),
       object: nil
     )
@@ -91,49 +79,47 @@ class RegexViewController: NSViewController, NSWindowDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    NSEvent.addLocalMonitorForEvents(matching: .keyDown) { (event) -> NSEvent? in
-      self.keyDown(with: event)
-      return event
-    }
-    
     setThemeColor(notification: nil)
+  }
+  
+  @objc func themeChanged(notification: Notification?) {
+    setThemeColor(notification: notification)
+    setRegexInputColor(notification: notification)
+    parse()
+  }
+  
+  func parse() {
+    let attr = setRegexHighlight(
+      regex: regexInput.textStorage?.string,
+      text: self.textInput,
+      event: nil
+    )
+    setOutputHighlight(attr: attr)
+    setRegexInputColor(notification: nil)
   }
   
   // Set color for regex input when regex is syntax highlighted
   @objc func setRegexInputColor(notification: Notification?) {
-    var theme = notification?.object as? String ?? defaults.string(forKey: "theme")
-    if theme == nil {
-      theme = DEFAULT_THEME
-    }
-    if let theme = theme {
-      let highlightedText = highlighter.highlight(string: self.regexTextInput, theme: theme)
-      let cursorPosition = regexInput.selectedRanges[0].rangeValue.location
-      regexInput.textStorage?.mutableString.setString("")
-      regexInput.textStorage?.append(highlightedText)
-      regexInput.setSelectedRange(NSMakeRange(cursorPosition, 0))
-    }
+    let theme = currentTheme.getTheme(notification)
+    let highlightedText = highlighter.highlight(string: self.regexTextInput, theme: theme)
+    let cursorPosition = regexInput.selectedRanges[0].rangeValue.location
+    regexInput.textStorage?.mutableString.setString("")
+    regexInput.textStorage?.append(highlightedText)
+    regexInput.setSelectedRange(NSMakeRange(cursorPosition, 0))
   }
   
   @objc func setThemeColor(notification: Notification?) {
-    var theme = notification?.object as? String ?? defaults.string(forKey: "theme")
-    if theme == nil {
-      theme = DEFAULT_THEME
+    let theme = currentTheme.getTheme(notification)
+    if (theme == "Light") {
+      topHalf.material = .light
+      bottomHalf.material = .mediumLight
+    } else {
+      topHalf.material = .dark
+      bottomHalf.material = .ultraDark
     }
-    if let theme = theme {
-      if (theme == "Light") {
-        self.view.window?.appearance = NSAppearance(named: lightTheme.appearance)
-        topHalf.material = .light
-        bottomHalf.material = .mediumLight
-        regexInput.textColor = lightTheme.text
-        textOutput.textColor = lightTheme.text
-      } else {
-        self.view.window?.appearance = NSAppearance(named: darkTheme.appearance)
-        topHalf.material = .dark
-        bottomHalf.material = .ultraDark
-        regexInput.textColor = darkTheme.text
-        textOutput.textColor = darkTheme.text
-      }
-    }
+    regexInput.textColor = currentTheme.text
+    textOutput.textColor = currentTheme.text
+    self.view.window?.appearance = NSAppearance(named: currentTheme.appearance)
     regexInput.font = NSFont(name: "Monaco", size: 15)
     textOutput.font = NSFont(name: "Monaco", size: 15)
   }
@@ -157,14 +143,11 @@ class RegexViewController: NSViewController, NSWindowDelegate {
   }
   
   func setOutputHighlight(attr: NSMutableAttributedString) {
-    let theme = defaults.string(forKey: "theme") ?? DEFAULT_THEME
-    let textColor = (theme == "Light") ? lightTheme.text : darkTheme.text
-    
-    regexInput.textColor = textColor
-    textOutput.textColor = textColor
+    regexInput.textColor = currentTheme.text
+    textOutput.textColor = currentTheme.text
     attr.addAttribute(
       NSAttributedStringKey.foregroundColor,
-      value: textColor,
+      value: currentTheme.text,
       range: NSRange(location: 0, length: attr.length)
     )
     
@@ -178,7 +161,7 @@ class RegexViewController: NSViewController, NSWindowDelegate {
   func setRegexHighlight(regex regexInput: String?, text textInput: String?, event: NSEvent?) -> NSMutableAttributedString {
     let topBox = regexInput
     let bottomBox = textInput
-    let theme = defaults.string(forKey: "theme") ?? DEFAULT_THEME
+    let theme = currentTheme.getTheme()
     
     if let topBox = topBox, let bottomBox = bottomBox {
       var foundMatches : [NSTextCheckingResult] = []
@@ -238,40 +221,7 @@ class RegexViewController: NSViewController, NSWindowDelegate {
     let empty = NSMutableAttributedString(string: "")
     return empty
   }
-  
-  override func keyDown(with event: NSEvent) {
-    // If command key and special letter pressed
-    // Return and let default action occur
-    switch event.modifierFlags.intersection(.deviceIndependentFlagsMask) {
-    case [.command]:
-      return
-    case [.control]:
-      return
-    default:
-      break
-    }
-    
-    // Handle specific keyCodes e.g arrow keys
-    switch event.keyCode {
-    case 123, 124, 125, 126:
-      return
-    default:
-      break
-    }
-    
-    if event.charactersIgnoringModifiers == String(Character(UnicodeScalar(NSDeleteCharacter)!)) {
-      return
-    }
-    
-    let attr = setRegexHighlight(
-      regex: regexInput.textStorage?.string,
-      text: textOutput.textStorage?.string,
-      event: event
-    )
-    
-    setOutputHighlight(attr: attr)
-  }
-  
+
   @IBAction func referenceButtonClicked(_ sender: NSButton) {
     if let splitViewController = self.parent as? NSSplitViewController {
       let splitViewItem = splitViewController.splitViewItems

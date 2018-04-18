@@ -13,22 +13,23 @@ class WindowController: NSWindowController {
   override func windowDidLoad() {
     super.windowDidLoad()
     
-    let theme = defaults.string(forKey: "theme") ?? DEFAULT_THEME
+    // Set saved theme
+    if let theme = defaults.string(forKey: "theme") {
+      currentTheme.setTheme(theme)
+    }
     
     if let window = window {
-      setWindowColor(theme: theme)
+      setWindowColor()
       window.titleVisibility = NSWindow.TitleVisibility.hidden;
       window.titlebarAppearsTransparent = true;
       window.styleMask.insert(.fullSizeContentView)
       window.isOpaque = false
       window.invalidateShadow()
     }
-    
   }
   
-  func setWindowColor(theme: String) {
-    let appearance = (theme == "Light") ? lightTheme.appearance : darkTheme.appearance;
-    window?.appearance = NSAppearance(named: appearance)
+  func setWindowColor() {
+    window?.appearance = NSAppearance(named: currentTheme.appearance)
   }
   
 }

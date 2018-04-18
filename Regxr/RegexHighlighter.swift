@@ -24,7 +24,7 @@ class RegexHighlighter {
     
     attribute.addAttribute(
       NSAttributedStringKey.foregroundColor,
-      value: theme == "Light" ? lightTheme.text : darkTheme.text,
+      value: currentTheme.text,
       range: NSRange(location: 0, length: attribute.length)
     )
     
@@ -38,7 +38,7 @@ class RegexHighlighter {
       
       attribute.addAttribute(
         NSAttributedStringKey.foregroundColor,
-        value: commonTheme.purple,
+        value: currentTheme.purple,
         range: NSRange(location: range.location, length: matchLength)
       )
       range = NSMakeRange(range.location + range.length, attributeLength - (range.location + range.length))
@@ -54,7 +54,7 @@ class RegexHighlighter {
       
       attribute.addAttribute(
         NSAttributedStringKey.foregroundColor,
-        value: commonTheme.blue,
+        value: currentTheme.blue,
         range: NSRange(location: range.location, length: matchLength)
       )
       range = NSMakeRange(range.location + range.length, attributeLength - (range.location + range.length))

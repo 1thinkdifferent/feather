@@ -9,30 +9,38 @@
 import Cocoa
 
 struct Theme {
-  var id: Int = -1
-  var name: String = "Common"
-  var appearance: NSAppearance.Name = NSAppearance.Name.vibrantDark
+  var id: Int = 0
+  var name: String = "Light"
+  var appearance: NSAppearance.Name = NSAppearance.Name.vibrantLight
   var text: NSColor = NSColor.black
   var purple: NSColor = NSColor(red: 0.60, green: 0.26, blue: 0.77, alpha: 1)
   var blue: NSColor = NSColor(red: 0.25, green: 0.51, blue: 0.77, alpha: 1)
   
-  init(id: Int, name: String, appearance: NSAppearance.Name, text: NSColor) {
-    self.id = id
-    self.name = name
-    self.appearance = appearance
-    self.text = text
+  func getTheme(_ n: Notification? = nil) -> String {
+    var theme = n?.object as? String ?? defaults.string(forKey: "theme")
+    if theme == nil {
+      theme = DEFAULT_THEME
+    }
+    if let theme = theme {
+      return theme
+    }
+    return self.name
   }
   
+  mutating func setTheme(_ theme: String) {
+    if (theme == "Light") {
+      self.id = 0
+      self.name = theme
+      self.appearance = NSAppearance.Name.vibrantLight
+      self.text = NSColor.black
+    } else {
+      self.id = 1
+      self.name = "Dark"
+      self.appearance = NSAppearance.Name.vibrantDark
+      self.text = NSColor.white
+    }
+    defaults.setValue(theme, forKey: "theme")
+  }
 }
 
-let lightTheme = Theme(id: 0,
-                       name: "Light",
-                       appearance: NSAppearance.Name.vibrantLight,
-                       text: NSColor.black)
-
-let darkTheme = Theme(id: 1,
-                      name: "Dark",
-                      appearance: NSAppearance.Name.vibrantDark,
-                      text: NSColor.white)
-
-let commonTheme = darkTheme
+var currentTheme = Theme()
