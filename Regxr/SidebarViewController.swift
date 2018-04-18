@@ -27,14 +27,12 @@ class SidebarViewController: NSViewController, NSWindowDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    referenceView.drawsBackground = false
-    let theme = defaults.string(forKey: "theme") ?? DEFAULT_THEME
     
-    setReferenceView(theme: theme)
-    setThemeColor(notification: nil)
+    referenceView.drawsBackground = false
+    setThemeColor()
   }
   
-  @objc func setThemeColor(notification: Notification?) {
+  @objc func setThemeColor(_ notification: Notification? = nil) {
     let theme = currentTheme.getTheme()
     switch theme {
     case "Light":
@@ -42,10 +40,10 @@ class SidebarViewController: NSViewController, NSWindowDelegate {
     default:
       backgroundView.material = .ultraDark
     }
-    setReferenceView(theme: theme)
+    setReferenceView(theme)
   }
   
-  func setReferenceView(theme: String) {
+  func setReferenceView(_ theme: String) {
     if let filePath = Bundle.main.path(forResource: "reference", ofType: "html") {
       var text = "#CCC"
       var oddBackground = "rgba(0, 0, 0, 0.1)"

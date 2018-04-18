@@ -26,6 +26,6 @@ class PreferencesWindowController: NSWindowController, NSWindowDelegate {
     }
     
     NSApp.activate(ignoringOtherApps: true)
-  }	
+  }
   
 }

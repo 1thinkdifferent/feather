@@ -11,6 +11,8 @@ import Cocoa
 class Theme {
   static let sharedInstance = Theme()
   
+  private init(){}
+  
   var id: Int = 0
   var name: String = "Light"
   var appearance: NSAppearance.Name = NSAppearance.Name.vibrantLight

@@ -218,8 +218,7 @@ class RegexViewController: NSViewController, NSWindowDelegate {
       }
       return attribute
     }
-    let empty = NSMutableAttributedString(string: "")
-    return empty
+    return NSMutableAttributedString(string: "")
   }
 
   @IBAction func referenceButtonClicked(_ sender: NSButton) {
