@@ -11,7 +11,7 @@ import Cocoa
 class Theme {
   static let sharedInstance = Theme()
   
-  private init(){}
+  private init(){}  
   
   var id: Int = 0
   var name: String = "Light"

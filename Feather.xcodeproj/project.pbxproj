@@ -26,7 +26,7 @@
 		A11AC46A1F77C8A800094AE6 /* SidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewController.swift; sourceTree = "<group>"; };
 		A13944011F77D30D0022A176 /* reference.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = reference.html; sourceTree = "<group>"; };
 		A15AB279208604B9002FEE78 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		A19C34791F76182E00BA7FC3 /* Regxr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Regxr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A19C34791F76182E00BA7FC3 /* Feather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A19C347C1F76182E00BA7FC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A19C347E1F76182E00BA7FC3 /* RegexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexViewController.swift; sourceTree = "<group>"; };
 		A19C34831F76182E00BA7FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				A13944011F77D30D0022A176 /* reference.html */,
-				A19C347B1F76182E00BA7FC3 /* Regxr */,
+				A19C347B1F76182E00BA7FC3 /* Feather */,
 				A19C347A1F76182E00BA7FC3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,12 +59,12 @@
 		A19C347A1F76182E00BA7FC3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A19C34791F76182E00BA7FC3 /* Regxr.app */,
+				A19C34791F76182E00BA7FC3 /* Feather.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A19C347B1F76182E00BA7FC3 /* Regxr */ = {
+		A19C347B1F76182E00BA7FC3 /* Feather */ = {
 			isa = PBXGroup;
 			children = (
 				A1B7872F1F77AA2700F6C5DF /* WindowController.swift */,
@@ -79,15 +79,15 @@
 				A1A133AC1F830FBD0072CB58 /* Assets.xcassets */,
 				A15AB279208604B9002FEE78 /* Theme.swift */,
 			);
-			path = Regxr;
+			path = Feather;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A19C34781F76182E00BA7FC3 /* Regxr */ = {
+		A19C34781F76182E00BA7FC3 /* Feather */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A19C34891F76182E00BA7FC3 /* Build configuration list for PBXNativeTarget "Regxr" */;
+			buildConfigurationList = A19C34891F76182E00BA7FC3 /* Build configuration list for PBXNativeTarget "Feather" */;
 			buildPhases = (
 				A19C34751F76182E00BA7FC3 /* Sources */,
 				A19C34761F76182E00BA7FC3 /* Frameworks */,
@@ -97,9 +97,9 @@
 			);
 			dependencies = (
 			);
-			name = Regxr;
+			name = Feather;
 			productName = Minimal;
-			productReference = A19C34791F76182E00BA7FC3 /* Regxr.app */;
+			productReference = A19C34791F76182E00BA7FC3 /* Feather.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -118,7 +118,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A19C34741F76182E00BA7FC3 /* Build configuration list for PBXProject "Regxr" */;
+			buildConfigurationList = A19C34741F76182E00BA7FC3 /* Build configuration list for PBXProject "Feather" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -131,7 +131,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A19C34781F76182E00BA7FC3 /* Regxr */,
+				A19C34781F76182E00BA7FC3 /* Feather */,
 			);
 		};
 /* End PBXProject section */
@@ -297,10 +297,10 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = QY544RDL2W;
-				INFOPLIST_FILE = Regxr/Info.plist;
+				INFOPLIST_FILE = Feather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = com.lukakerr.regxr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lukakerr.feather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -315,10 +315,10 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = QY544RDL2W;
-				INFOPLIST_FILE = Regxr/Info.plist;
+				INFOPLIST_FILE = Feather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = com.lukakerr.regxr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lukakerr.feather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -328,7 +328,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A19C34741F76182E00BA7FC3 /* Build configuration list for PBXProject "Regxr" */ = {
+		A19C34741F76182E00BA7FC3 /* Build configuration list for PBXProject "Feather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A19C34871F76182E00BA7FC3 /* Debug */,
@@ -337,7 +337,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A19C34891F76182E00BA7FC3 /* Build configuration list for PBXNativeTarget "Regxr" */ = {
+		A19C34891F76182E00BA7FC3 /* Build configuration list for PBXNativeTarget "Feather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A19C348A1F76182E00BA7FC3 /* Debug */,

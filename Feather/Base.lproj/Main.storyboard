@@ -83,11 +83,11 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="Regxr" id="1Xt-HY-uBw">
+                            <menuItem title="Feather" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Regxr" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="Feather" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About Regxr" id="5kV-Vb-QxS">
+                                        <menuItem title="About Feather" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
@@ -105,7 +105,7 @@
                                             <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                                        <menuItem title="Hide Regxr" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide Feather" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -123,7 +123,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Quit Regxr" keyEquivalent="q" id="4sb-4s-VLi">
+                                        <menuItem title="Quit Feather" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="rOY-Kn-R9D"/>
                                             </connections>
@@ -411,7 +411,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="Regxr Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                                        <menuItem title="Feather Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
                                             </connections>
