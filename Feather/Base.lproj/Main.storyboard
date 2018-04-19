@@ -12,7 +12,7 @@
         <scene sceneID="fYu-7M-BhW">
             <objects>
                 <customObject id="QKw-P1-VKq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <windowController id="vB8-KY-qZs" customClass="PreferencesWindowController" customModule="Regxr" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController id="vB8-KY-qZs" customClass="PreferencesWindowController" customModule="Feather" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="Tv6-0c-wxo">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -33,7 +33,7 @@
         <scene sceneID="QKy-rw-LG0">
             <objects>
                 <customObject id="izs-L3-J98" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <viewController id="Ahb-hq-v3J" customClass="PreferencesViewController" customModule="Regxr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ahb-hq-v3J" customClass="PreferencesViewController" customModule="Feather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="JAP-S6-PQ5">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="113"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -397,6 +397,11 @@
                                                 <action selector="performZoom:" target="Ady-hI-5gd" id="DIl-cC-cCs"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Close" keyEquivalent="w" id="a5M-fd-yQ7">
+                                            <connections>
+                                                <action selector="performClose:" target="Ady-hI-5gd" id="ALq-TO-oKd"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
                                         <menuItem title="Bring All to Front" id="LE2-aR-0XJ">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -425,7 +430,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Regxr" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Feather" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -434,7 +439,7 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" customClass="WindowController" customModule="Regxr" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController id="B8D-0N-5wS" customClass="WindowController" customModule="Feather" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -481,7 +486,7 @@
         <!--Sidebar View Controller-->
         <scene sceneID="bI1-kh-9qb">
             <objects>
-                <viewController id="LNK-wb-hgv" customClass="SidebarViewController" customModule="Regxr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LNK-wb-hgv" customClass="SidebarViewController" customModule="Feather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" focusRingType="none" id="TcZ-u9-CzB">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -523,7 +528,7 @@
         <!--Regex View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController storyboardIdentifier="RegexViewController" id="XfG-lQ-9wD" customClass="RegexViewController" customModule="Regxr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegexViewController" id="XfG-lQ-9wD" customClass="RegexViewController" customModule="Feather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
