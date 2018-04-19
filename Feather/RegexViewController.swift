@@ -145,11 +145,7 @@ class RegexViewController: NSViewController, NSWindowDelegate {
   func setOutputHighlight(attr: NSMutableAttributedString) {
     regexInput.textColor = currentTheme.text
     textOutput.textColor = currentTheme.text
-    attr.addAttribute(
-      NSAttributedStringKey.foregroundColor,
-      value: currentTheme.text,
-      range: NSRange(location: 0, length: attr.length)
-    )
+    attr.withColor(currentTheme.text)
     
     let cursorPosition = textOutput.selectedRanges[0].rangeValue.location
     textOutput.textStorage?.mutableString.setString("")
@@ -179,12 +175,10 @@ class RegexViewController: NSViewController, NSWindowDelegate {
       }
       
       let attribute = NSMutableAttributedString(string: bottomBox)
-      let attributeLength = attribute.string.count
-      
       var newColor = false
       
       for match in foundMatches {
-        var range = match.range(at: 0)
+        let range = match.range(at: 0)
         var index = bottomBox.index(bottomBox.startIndex, offsetBy: range.location + range.length)
         var outputStr = String(bottomBox[..<index])
         index = bottomBox.index(bottomBox.startIndex, offsetBy: range.location)
@@ -207,13 +201,7 @@ class RegexViewController: NSViewController, NSWindowDelegate {
           }
         }
         
-        attribute.addAttribute(
-          NSAttributedStringKey.backgroundColor,
-          value: backgroundColor,
-          range: NSRange(location: range.location, length: matchLength)
-        )
-        
-        range = NSMakeRange(range.location + range.length, attributeLength - (range.location + range.length))
+        attribute.withBackgroundColor(backgroundColor, at: NSRange(location: range.location, length: matchLength))
         newColor = !newColor
       }
       return attribute

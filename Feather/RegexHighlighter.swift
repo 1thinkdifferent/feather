@@ -20,50 +20,29 @@ class RegexHighlighter {
     )
     
     let attribute = NSMutableAttributedString(string: string)
-    let attributeLength = attribute.string.count
-    
-    attribute.addAttribute(
-      NSAttributedStringKey.foregroundColor,
-      value: currentTheme.text,
-      range: NSRange(location: 0, length: attribute.length)
-    )
+    attribute.withColor(currentTheme.text)
     
     for match in purpleFoundMatches {
-      var range = match.range(at: 0)
+      let range = match.range(at: 0)
       var index = string.index(string.startIndex, offsetBy: range.location + range.length)
       var outputStr = String(string[..<index])
       index = string.index(string.startIndex, offsetBy: range.location)
       outputStr = String(outputStr.suffix(from: index))
-      let matchLength = outputStr.count
       
-      attribute.addAttribute(
-        NSAttributedStringKey.foregroundColor,
-        value: currentTheme.purple,
-        range: NSRange(location: range.location, length: matchLength)
-      )
-      range = NSMakeRange(range.location + range.length, attributeLength - (range.location + range.length))
+      attribute.withColor(currentTheme.purple, at: NSRange(location: range.location, length: outputStr.count))
     }
     
     for match in blueFoundMatches {
-      var range = match.range(at: 0)
+      let range = match.range(at: 0)
       var index = string.index(string.startIndex, offsetBy: range.location + range.length)
       var outputStr = String(string[..<index])
       index = string.index(string.startIndex, offsetBy: range.location)
       outputStr = String(outputStr.suffix(from: index))
-      let matchLength = outputStr.count
       
-      attribute.addAttribute(
-        NSAttributedStringKey.foregroundColor,
-        value: currentTheme.blue,
-        range: NSRange(location: range.location, length: matchLength)
-      )
-      range = NSMakeRange(range.location + range.length, attributeLength - (range.location + range.length))
+      attribute.withColor(currentTheme.blue, at: NSRange(location: range.location, length: outputStr.count))
     }
     
-    attribute.addAttributes(
-      [NSAttributedStringKey.font: NSFont(name: "Monaco", size: 15)!],
-      range: NSRange(location: 0, length: attribute.length)
-    )
+    attribute.withFont(NSFont(name: "Monaco", size: 15)!)
     return attribute
   }
   

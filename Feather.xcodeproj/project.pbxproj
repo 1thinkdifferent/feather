@@ -17,6 +17,7 @@
 		A19C34841F76182E00BA7FC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A19C34821F76182E00BA7FC3 /* Main.storyboard */; };
 		A1A133AD1F830FBD0072CB58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1A133AC1F830FBD0072CB58 /* Assets.xcassets */; };
 		A1B787301F77AA2700F6C5DF /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7872F1F77AA2700F6C5DF /* WindowController.swift */; };
+		A1C4E80E2089437000624367 /* NSMutableAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C4E80D2089437000624367 /* NSMutableAttributedString+Extension.swift */; };
 		A1FDFEEA1F78CEA300B2DABD /* RegexHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FDFEE91F78CEA300B2DABD /* RegexHighlighter.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		A19C34851F76182E00BA7FC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1A133AC1F830FBD0072CB58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1B7872F1F77AA2700F6C5DF /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		A1C4E80D2089437000624367 /* NSMutableAttributedString+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extension.swift"; sourceTree = "<group>"; };
 		A1FDFEE91F78CEA300B2DABD /* RegexHighlighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexHighlighter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +69,7 @@
 		A19C347B1F76182E00BA7FC3 /* Feather */ = {
 			isa = PBXGroup;
 			children = (
+				A1C4E80C2089437000624367 /* Extensions */,
 				A1B7872F1F77AA2700F6C5DF /* WindowController.swift */,
 				A19C347C1F76182E00BA7FC3 /* AppDelegate.swift */,
 				A19C347E1F76182E00BA7FC3 /* RegexViewController.swift */,
@@ -80,6 +83,14 @@
 				A15AB279208604B9002FEE78 /* Theme.swift */,
 			);
 			path = Feather;
+			sourceTree = "<group>";
+		};
+		A1C4E80C2089437000624367 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A1C4E80D2089437000624367 /* NSMutableAttributedString+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +173,7 @@
 				A1B787301F77AA2700F6C5DF /* WindowController.swift in Sources */,
 				A19C347D1F76182E00BA7FC3 /* AppDelegate.swift in Sources */,
 				A11AC46B1F77C8A800094AE6 /* SidebarViewController.swift in Sources */,
+				A1C4E80E2089437000624367 /* NSMutableAttributedString+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
