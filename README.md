@@ -45,4 +45,4 @@ $ open Feather.xcodeproj
 
 <p align="center">
   <img src="https://i.imgur.com/NFErfQN.png" alt="Feather">
-</p>/
+</p>
