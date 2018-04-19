@@ -1,4 +1,4 @@
-**Feather Details:**
+**Details:**
 
 - MacOS Version: 
 - Feather Version: 
