@@ -24,8 +24,8 @@ To install Feather, visit the [releases page](https://github.com/lukakerr/feathe
 To build and run, clone this repository, open in Xcode and hit "Run".
 
 ```bash
-$ git clone git@github.com:lukakerr/regxr.git
-$ cd regxr
+$ git clone git@github.com:lukakerr/feather.git
+$ cd feather
 $ open Feather.xcodeproj
 ```
 
